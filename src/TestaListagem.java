@@ -1,7 +1,7 @@
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class TestaListagem 
 {
@@ -10,8 +10,8 @@ public class TestaListagem
 		ConnectionFactory criaConexao = new ConnectionFactory();
 		Connection connection = criaConexao.recuperarConexao();
 		
-		Statement stm = connection.createStatement();
-		stm.execute("SELECT ID, NOME, DESCRICAO FROM produto");
+		PreparedStatement stm = connection.prepareStatement("SELECT ID, NOME, DESCRICAO FROM produto");
+		stm.execute();
 		ResultSet rs = stm.getResultSet();
 		
 		while (rs.next())
