@@ -1,7 +1,10 @@
+package br.com.jdbc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import br.com.jdbc.factory.ConnectionFactory;
 
 public class TestaListagem 
 {

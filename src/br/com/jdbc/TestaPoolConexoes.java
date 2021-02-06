@@ -1,4 +1,7 @@
+package br.com.jdbc;
 import java.sql.SQLException;
+
+import br.com.jdbc.factory.ConnectionFactory;
 
 public class TestaPoolConexoes 
 {

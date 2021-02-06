@@ -1,3 +1,4 @@
+package br.com.jdbc.factory;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -9,17 +10,18 @@ public class ConnectionFactory
 {
 	public DataSource dataSource;
 	
-	ConnectionFactory() 
+	public ConnectionFactory() 
 	{
 		ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
 		comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost/loja_virtual?useTimezone=true&serverTimezone=UTC");
 		comboPooledDataSource.setUser("alura");
 		comboPooledDataSource.setPassword("alura");
 		comboPooledDataSource.setMaxPoolSize(15);
+		comboPooledDataSource.isAutoCommitOnClose();
 		this.dataSource = comboPooledDataSource;
 	}
 	
-	Connection recuperarConexao() throws SQLException
+	public Connection recuperarConexao() throws SQLException
 	{
 		return this.dataSource.getConnection();
 	}
